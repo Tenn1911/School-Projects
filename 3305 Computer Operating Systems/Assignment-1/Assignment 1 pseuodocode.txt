@@ -1,0 +1,82 @@
+
+
+
+
+int main():
+	accpet 3 parameters, 
+	verify that they are 3 valid integers, and the third parameter is larger than the second
+	if inputs are invalid:
+		print ("Invalid inputs, exiting.")
+		return 0
+	
+	
+	int min = second parameter
+	int max = third paramter
+	
+	
+	if first paramter is 0
+		run program in serial mode
+	else 
+		run program in parallel mode
+		
+	return
+		
+		
+
+	void serial_mode(min,max)
+		int count = 0
+		int sum = 0
+		for(int i = min, i<=max,i++)
+			check if i is prime
+			if yes
+				add to sum
+				increment count
+		
+		output count and sum
+		
+		return
+		
+	void parallel_mode(min, max)
+		
+		create a ordinary pipe
+		
+		int count = 0
+		int sum = 0
+		
+		int min, max
+		
+		quartiles = [min, max*1/4,max*2/4, max*3/4,max]
+	
+		for(int i = 0; i<4;i++)
+			min = quartiles[i]
+			max = quartiles[i+1]
+			pid = fork()
+			 if (pid < 0) {
+				perror("fork error");
+				exit(0);
+			  }
+			 if (child process)
+				break;
+			
+		if(pid > 0)//parent process
+			wait for children to finish and send results
+			tally sum and count
+			print results
+			
+		else{
+			for (j = min, j<max,j++)
+					check if i is prime
+					if yes
+						add to sum
+						increment count
+				send parent sum and count
+				kill process 
+		}
+		return 
+		
+		
+		
+
+		
+		
+		
