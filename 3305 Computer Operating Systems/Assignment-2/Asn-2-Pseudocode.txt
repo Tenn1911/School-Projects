@@ -1,0 +1,101 @@
+
+
+int main(int argc, char *argv[]){
+//check num of args passed
+
+    if (argc != 3){
+        printf("Not enough arguments, exiting.\n");
+        return 1;
+    }
+	
+//check validity of all arguments
+if(!is_valid_integer(argv[1]) || !is_valid_integer(argv[2])){
+        printf("Invalid integer entered, exiting.\n");
+        return 1;
+    }
+
+//store arguments in variables
+//check that both are four digit ints
+
+if(length(a) <= 1){
+ return a*b;
+}
+n = length(a)
+
+partition the in numbers into a1,a2,b1,b2
+
+int a2 = p%100;
+int a1 = (p -a2)/100;
+
+int b2 = p%100;
+int b1 = p/100;
+
+establish both pipes
+
+fork()pid = fork();
+        //handle errors
+        if(pid<0){
+            perror("fork error\n");
+            exit(0);
+        }
+
+if(parent call parent method)//parameters are n,a1,a2,b1,b3,pointer to pipes[]
+else(call child method)//parameters pointer to pipes[]
+
+}
+
+parentmethod(){
+
+
+write a1 and b1 to pipe
+
+read A from pipe
+
+X = A * 10**n
+
+write a2, b1 to pipe
+
+write a1, a2 to pipe
+
+read B and C from pipe
+
+Y = (B+C) * 10**(n/2)
+
+write a2,b2 to pipe
+
+read D from pipe
+
+Z = D*10**0
+
+return X+Y+Z
+
+}
+
+
+childmethod(){
+
+read a1 and b1 from pipe
+A = a1*b1
+write A to pipe
+
+read a2, b1 from pipe
+B = a2*b1
+write B to pipe
+
+read a1, b2 from pipe
+C = a1*b2
+write C to pipe
+
+read a2,b2 from pipe
+D = a2*b2
+write D to pipe
+
+exit()
+
+}
+
+
+
+print(){
+
+}

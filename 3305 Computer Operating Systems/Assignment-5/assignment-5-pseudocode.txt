@@ -1,0 +1,152 @@
+
+
+
+
+#define ARRAY_SIZE 5
+
+#define TRAIN_0_CAPACITY 
+
+#define TRAIN_1_CAPACITY 
+
+typedef struct {
+    int passengers;
+    int limit;
+    pthread_mutex_t lock;
+} Station;
+
+Station stations[ARRAY_SIZE];
+
+pthreads for each train 0, 1
+
+pthread_mutex_t stdout_lock;
+
+
+
+int main(){
+
+    initialize_stations()
+    initialize stdout lock  
+    begin threads
+
+    join threads
+    return 0;
+}
+
+void initialize_stations() {
+
+    array[0].passengers = 500;
+    pthread_mutex_init(&array[i].lock, NULL);
+
+    for (int i = 1; i < ARRAY_SIZE; i++) {
+        array[i].data = 0;
+        pthread_mutex_init(&array[i].lock, NULL);
+    }
+
+    //manually set the passenger limit of each station
+}
+
+
+
+void* simulate_trains(void* arg){
+
+    int train_num //from args
+    int max_capacity 
+    int current_capacity = 0
+    int current_station = 0
+
+    while(true){
+        //check the train is at a valid station
+        if(!validate_current_station(current_station)){
+            print current station invalid, exiting
+            pthread_exit(NULL);
+        }
+        
+        if(current_station == 0){
+            current_capacity = pick_up_passengers(train_num, max_capacity)
+            if(current_capacity == 0){
+                break;
+                //no more passengers to pick up
+            }
+            
+        }
+        else{
+            current_capacity = drop_off_passengers(current_station, current_capacity, train_num)
+            if(current_capacity == 0){
+                //train empty go back to station 0
+                current_station -= 1
+            }
+            else{
+                //train still has passengers to drop off
+                current_station += 1
+            }
+        }
+    }
+    
+    //end of the thread
+    return NULL
+}
+
+
+
+int pick_up_passengers(int train_number, int train_capacity) {
+    lock stdout_lock
+    lock stations[0]
+
+    print the train enters the station
+    check how many passengers the station has left to pick up
+    
+    get the number of passengers the train can hold
+
+    update data
+
+    print the number of passenger on the train
+     
+    print the number of passengers waiting at the station
+
+    print the train leave the station
+
+    unlock stdout_lock
+    unlock stations[0] 
+
+    return the number of passenger on the train
+}
+
+
+
+
+
+/*
+get index of station and number of passengers being dropped off as params
+check how many passengers can be dropped off, drop the passengers of
+return the number of passengers still on the train
+*/
+int drop_off_passengers(int station_num, int passengers, int train_number) {
+    lock stdout_lock
+    lock stations[station_num]
+
+    print the train enters the station
+    check how many passengers the station has left to arrive
+    
+    get the number of passengers the train can drop off
+
+    drop them off/update data
+
+    print the number of passenger left on the train
+     
+    print the number of passengers the station is waitng for
+
+    print the train leave the station
+
+    unlock stdout_lock
+    unlock stations[station_num] 
+
+    return the number of passenger on the train
+}
+
+
+bool validate_current_station(int station_num){
+    if(station_num >= 0 || station_num<=4){
+        return true;
+    }
+    return false;
+}

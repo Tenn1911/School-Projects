@@ -1,0 +1,2 @@
+
+read file and store numbers
